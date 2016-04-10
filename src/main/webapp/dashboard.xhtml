@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="/template/public.xhtml">
+        <ui:define name="body">
+           
+                <p:layout>
+                    <p:layoutUnit position="north" size="40" resizable="true" >
+                        <h:panelGrid columns="1" style="width: 100%">
+                            <h:panelGroup >
+                                <h:form>
+                                <div id="divHeader" >
+                                    <div class="logo">
+                                        <h:outputLink value="/" style="cursor: pointer">
+                                            <p:graphicImage name="images/logo.png" width="25" />
+                                        </h:outputLink>
+                                    </div>
+                                    <div class="headerAdminlink" style="float: right">
+                                        <h:outputLink class="ui-commandlink ui-widget"  value="/tata" 
+                                                      style="font-weight: normal;color: rgb(255,85,0)">Child Schedule</h:outputLink>|
+                                        <h:commandLink class="ui-commandlink ui-widget" style="color: rgb(255,85,0);font-weight: normal; "  
+                                                       action="#{userLogin.logout()}"  value="Logout"></h:commandLink>
+                                    </div>
+                                </div>
+                                    </h:form>
+                            </h:panelGroup>
+                        </h:panelGrid>
+                    </p:layoutUnit>
+                    <p:layoutUnit position="west" size="200" header="Status Panel" resizable="true" closable="false" collapsible="true">
+
+                            <p:accordionPanel>
+                                <p:tab title="Last Location">
+                                    <h:panelGrid columns="2" cellpadding="10">
+                                        <h:outputText
+                                            value=" BNN College, Dhamankar Naka, Padma Nagar, Bhiwandi, Maharashtra, India" />
+                                    </h:panelGrid>
+                                </p:tab>
+                            </p:accordionPanel>
+                    </p:layoutUnit> 
+                    <p:layoutUnit position="center">
+                        <h:panelGroup >
+                            <p:gmap center="19.285459,73.0529122" zoom="16" type="ROADMAP" style="width:100%;height:700px" 
+                                    model="#{dashBoardController.simpleModel}" />
+                        </h:panelGroup>
+                    </p:layoutUnit>
+                </p:layout>
+
+        </ui:define>
+    </ui:composition>
+</html>
+

@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/template/public.xhtml">
+        <ui:define name="body">
+            <div id="divContainer" class="container">
+                <div class="divCenter">
+                    <h:panelGrid columns="1" style="width: 100%">
+                        <h:panelGroup >
+                            <div id="divHeader" >
+                                <div class="logo">
+                                    <h:outputLink value="/" style="cursor: pointer">
+                                        <p:graphicImage name="images/logo.png" width="150" />
+                                    </h:outputLink>
+                                </div>
+                                <div class="headerlink">
+                                    <h:form>
+                                        <br/>
+                                        <h:outputLabel class="ui-commandlink ui-widget"  value="Welcome Guest" style="color: white"/>
+                                    </h:form>
+                                </div>
+                                <div class="headerAdminlink" style="float: right">
+                                    <h:form>
+                                        <h:outputLink class="ui-commandlink ui-widget"  value="/aboutus" style="font-weight: normal;color: rgb(255,85,0)">About us</h:outputLink>|
+                                        <h:outputLink class="ui-commandlink ui-widget"  value="/contactus" style="font-weight: normal;color: rgb(255,85,0)">Contact us</h:outputLink>|
+                                        <h:outputLink class="ui-commandlink ui-widget"  value="/singup" style="font-weight: normal;color: rgb(255,85,0)">Sing Up</h:outputLink>
+                                    </h:form>
+                                </div>
+                            </div>
+                        </h:panelGroup>
+
+                        <img src="resources/images/home2.jpg" width="960"/>
+                        <h:panelGroup>
+                            <br/>
+                            <div id="loginBox">
+                                <h:form>
+                                    <p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
+                                    <p:panel style="background: transparent;border: none">
+                                        <h:panelGrid columns="1" cellpadding="10"  cellspacing="6">
+                                            <f:facet name="header">
+                                                <h:outputLabel   
+                                                    value="Login  with Mobile No." 
+                                                    style="color: white;font-size: 8px;float: left;color: rgb(255,85,0)"/>
+                                            </f:facet>
+                                            <p:inputMask mask="(+99) 999-999-9999" id="mobileno" value="#{userLogin.selected.contactNo}" styleClass="logininput" required="true"
+                                                         requiredMessage="Enter valid  Mobile no" 
+                                                         />
+                                            <p:watermark for="mobileno" value="Enter your mobile no" id="formobileno" /> 
+                                            <p:password  id="userpassword" styleClass="logininput" value="#{userLogin.selected.password}" required="true" 
+                                                         requiredMessage="Enter valid  Password" 
+                                                         />
+                                            <p:watermark for="userpassword" value="Enter Your Password" id="password" />
+                                            <f:facet name="footer">
+                                                <p:commandButton value="Login"  action="#{userLogin.login()}"  style="font-weight: bold;" />
+                                            </f:facet>
+                                        </h:panelGrid>
+                                    </p:panel>
+                                </h:form>
+                            </div>
+                            <div id="logincontainer">
+
+                            </div>
+                        </h:panelGroup>
+                    </h:panelGrid>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>
+
